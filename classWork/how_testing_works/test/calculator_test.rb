@@ -4,15 +4,14 @@ require "minitest/pride"
 require_relative "../lib/calculator"
 
 class CalculatorTest < Minitest::Test
-    def setup 
+    def setup
         @calc = Calculator.new
     end
-    
+
     def test_it_exists
         assert_instance_of(Calculator, @calc)
     end
-    
-    # add
+
     def test_add_positive
         @calc.add(3)
         @calc.add(2)
@@ -20,7 +19,7 @@ class CalculatorTest < Minitest::Test
         expected = 5
         assert_equal(actual, expected)
     end
-    
+
     def test_add_negative
         @calc.add(-3)
         @calc.add(10)
@@ -28,7 +27,7 @@ class CalculatorTest < Minitest::Test
         expected = 7
         assert_equal(actual, expected)
     end
-    
+
     def test_add_float
         @calc.add(3)
         @calc.add(1.2)
@@ -36,7 +35,7 @@ class CalculatorTest < Minitest::Test
         expected = 4.2
         assert_equal(actual, expected)
     end
-    
+
     def test_add_invalid
         @calc.add(3)
         @calc.add('abc')
@@ -44,10 +43,18 @@ class CalculatorTest < Minitest::Test
         expected = 3
         assert_equal(actual, expected)
     end
-    
-    # total 
-    
-    # clear
-    
+
+    def test_initial_total
+      assert_equal(@calc.total, 0)
+    end
+
+    def test_clear
+      @calc.add(3)
+      @calc.clear
+      actual = @calc.total
+      expected = 0
+      assert_equal(actual, expected)
+    end
+
     # subtract
 end
