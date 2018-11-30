@@ -12,6 +12,14 @@ class Calculator
             0
         end
     end
+    
+    def subtract(num)
+        if num.is_a? Numeric
+            @total -= num
+        else
+            0
+        end
+    end
 
     def clear
       @total = 0

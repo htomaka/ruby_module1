@@ -12,7 +12,7 @@ class CalculatorTest < Minitest::Test
         assert_instance_of(Calculator, @calc)
     end
 
-    def test_add_positive
+    def test_add
         @calc.add(3)
         @calc.add(2)
         actual = @calc.total
@@ -20,21 +20,6 @@ class CalculatorTest < Minitest::Test
         assert_equal(actual, expected)
     end
 
-    def test_add_negative
-        @calc.add(-3)
-        @calc.add(10)
-        actual = @calc.total
-        expected = 7
-        assert_equal(actual, expected)
-    end
-
-    def test_add_float
-        @calc.add(3)
-        @calc.add(1.2)
-        actual = @calc.total
-        expected = 4.2
-        assert_equal(actual, expected)
-    end
 
     def test_add_invalid
         @calc.add(3)
@@ -56,5 +41,20 @@ class CalculatorTest < Minitest::Test
       assert_equal(actual, expected)
     end
 
-    # subtract
+    def test_subtract
+        @calc.subtract(3)
+        @calc.subtract(2)
+        actual = @calc.total
+        expected = -5
+        assert_equal(actual, expected)
+    end
+
+
+    def test_add_invalid
+        @calc.subtract(3)
+        @calc.subtract('abc')
+        actual = @calc.total
+        expected = -3
+        assert_equal(actual, expected)
+    end
 end
