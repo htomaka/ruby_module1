@@ -50,7 +50,7 @@ class CalculatorTest < Minitest::Test
     end
 
 
-    def test_add_invalid
+    def test_subtract_invalid
         @calc.subtract(3)
         @calc.subtract('abc')
         actual = @calc.total
